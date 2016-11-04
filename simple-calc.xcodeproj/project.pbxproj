@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C73CD7731DC94E9E003882C0 /* HistoryTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73CD7721DC94E9E003882C0 /* HistoryTableTableViewController.swift */; };
 		C7A52F7C1DC2DBB300FD5F91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A52F7B1DC2DBB300FD5F91 /* AppDelegate.swift */; };
 		C7A52F7E1DC2DBB300FD5F91 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A52F7D1DC2DBB300FD5F91 /* ViewController.swift */; };
 		C7A52F831DC2DBB300FD5F91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7A52F821DC2DBB300FD5F91 /* Assets.xcassets */; };
@@ -15,6 +14,7 @@
 		C7A52F911DC2DBB300FD5F91 /* simple_calcTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A52F901DC2DBB300FD5F91 /* simple_calcTests.swift */; };
 		C7A52F9C1DC2DBB400FD5F91 /* simple_calcUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A52F9B1DC2DBB400FD5F91 /* simple_calcUITests.swift */; };
 		C7A52FB21DC2E77900FD5F91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A52FB11DC2E77900FD5F91 /* Main.storyboard */; };
+		C7F9961A1DCA66D7006827EF /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F996191DCA66D7006827EF /* HistoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +35,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C73CD7721DC94E9E003882C0 /* HistoryTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableTableViewController.swift; sourceTree = "<group>"; };
 		C7A52F781DC2DBB300FD5F91 /* simple-calc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "simple-calc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7A52F7B1DC2DBB300FD5F91 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7A52F7D1DC2DBB300FD5F91 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +48,7 @@
 		C7A52F9B1DC2DBB400FD5F91 /* simple_calcUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simple_calcUITests.swift; sourceTree = "<group>"; };
 		C7A52F9D1DC2DBB400FD5F91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7A52FB11DC2E77900FD5F91 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		C7F996191DCA66D7006827EF /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +105,7 @@
 				C7A52F841DC2DBB300FD5F91 /* LaunchScreen.storyboard */,
 				C7A52F871DC2DBB300FD5F91 /* Info.plist */,
 				C7A52FB11DC2E77900FD5F91 /* Main.storyboard */,
-				C73CD7721DC94E9E003882C0 /* HistoryTableTableViewController.swift */,
+				C7F996191DCA66D7006827EF /* HistoryViewController.swift */,
 			);
 			path = "simple-calc";
 			sourceTree = "<group>";
@@ -265,9 +265,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7F9961A1DCA66D7006827EF /* HistoryViewController.swift in Sources */,
 				C7A52F7E1DC2DBB300FD5F91 /* ViewController.swift in Sources */,
 				C7A52F7C1DC2DBB300FD5F91 /* AppDelegate.swift in Sources */,
-				C73CD7731DC94E9E003882C0 /* HistoryTableTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

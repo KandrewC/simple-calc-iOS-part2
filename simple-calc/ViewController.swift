@@ -12,11 +12,9 @@ class ViewController: UIViewController {
     @IBOutlet var calculatorDisplay: UITextField!
     @IBOutlet weak var rpnSwitchLabel: UILabel!
     @IBOutlet weak var rpnEnterButton: UIButton!
-    
-    
+
     
     var input : String = ""
-    
     var inputNumber : Double = 0
     var result : Double = 0
     var currentOp : String = ""
@@ -24,11 +22,13 @@ class ViewController: UIViewController {
     var counting : Bool = false
     var averaging : Bool = false
     var factorial : Bool = false
-    
+    var count = 0
     var rpnArray = [Double]()
-    
     var rpnMode: Bool = false;
     
+    var history: [String] = []
+    var calcHistoryString : String = ""
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -47,6 +47,13 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
+        if segue.identifier == "toHistoryView" {
+            let historyViewController = segue.destination as! HistoryViewController
+            historyViewController.calcHistory = history
+        }
+    }
+    
     @IBAction func rpnSwitch(_ sender: UISwitch) {
         if rpnMode {
             rpnEnterButton.isHidden = true
@@ -54,13 +61,13 @@ class ViewController: UIViewController {
             rpnEnterButton.isHidden = false
         }
         rpnMode = sender.isOn;
-        print(rpnMode)
     }
     
     @IBAction func buttonInput(_ sender: UIButton) {
         input += sender.titleLabel!.text!
         inputNumber = Double(input)!
         calculatorDisplay.text = ("\(inputNumber)")
+
     }
     
     @IBAction func rpnEnter(_ sender: UIButton) {
@@ -69,11 +76,12 @@ class ViewController: UIViewController {
         
         input = ""
         
-        print(rpnArray)
     }
     
     @IBAction func operationInput(_ sender: UIButton) {
-        print("operation input!")
+        count += 1
+        calcHistoryString += calculatorDisplay.text!
+
         if rpnMode {
             if rpnArray.count == 2 {
                 switch sender.titleLabel!.text! {
@@ -106,7 +114,12 @@ class ViewController: UIViewController {
             
         } else {
             input = ""
+           
+            let operation = sender.titleLabel!.text!
+
+         
             switch currentOp {
+
             case "+" :
                 result += inputNumber
             case "-" :
@@ -118,6 +131,7 @@ class ViewController: UIViewController {
             case "%" :
                 result = result.truncatingRemainder(dividingBy: inputNumber)
             case "=" :
+                
                 if counting {
                     result = Double(operandArray.count)
                 } else if averaging {
@@ -138,12 +152,29 @@ class ViewController: UIViewController {
                     result = Double(fact)
                 } else {
                     result = inputNumber
+
+            
                 }
+               
             default : print("error")
                 
             }
+         print(count)
+            if operation != "=" {
+                calcHistoryString += " " + operation + " "
+            } else {
+                calcHistoryString += " = "
+                if count == 2 {
+                    print(count)
+                    calcHistoryString += "\(result)"
+                }
+                history.append(calcHistoryString)
+            }
+            
+
             inputNumber = 0
             calculatorDisplay.text = ("\(result)")
+            
             if sender.titleLabel!.text == "=" {
                 result = 0
                 inputNumber = 0
@@ -152,17 +183,13 @@ class ViewController: UIViewController {
                 counting = false
                 averaging = false
                 factorial = false
+                calcHistoryString = ""
+                count = 0
+                
             }
             currentOp = sender.titleLabel!.text! as String!
         }
-        
-        let defaults = UserDefaults.standard
-        var tasks = defaults.array(forKey: "tasks")
-        if tasks == nil {
-            tasks = Array()
-        }
-        tasks!.append("HI")
-        defaults.set(tasks, forKey: "tasks")
+
 
     }
     
