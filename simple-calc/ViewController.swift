@@ -159,7 +159,6 @@ class ViewController: UIViewController {
             default : print("error")
                 
             }
-         print(count)
             if operation != "=" {
                 calcHistoryString += " " + operation + " "
             } else {
